@@ -63,7 +63,7 @@ As output, we should have:
 ### Joining Organization to Channel
 Execute the following console command:
 ```bash
-./bc-network.sh channel join -–channel-name channel1 --org medicalprovider1 --org medicalprovider2
+./bc-network.sh channel join --channel-name channel1 --org medicalprovider1 --org medicalprovider2
 ```
 
 Where **channel1** is the name of the channel and **medicalprovider1** and **medicalprovider2** are the organizations that will join it.
@@ -90,7 +90,7 @@ As output, we should have three new users for each organization, each one with a
 Execute the following console command:
 ```bash
 ./bc-network.sh chaincode deploy-org --cc-name healthcare --cc-path ../chaincode-healthcare --cc-version 1.1 --cc-sequence 1 
-–-channel-name channel1 --org medicalprovider1 --org medicalprovider2
+--channel-name channel1 --org medicalprovider1 --org medicalprovider2
 ```
 
 Where **healthcare** is the chaincode name and **medicalprovider1** and **medicalprovider2** are the organizations where it will be deploying using the channel1 channel.
@@ -115,6 +115,10 @@ FCN_CALL:
 ```bash
 '{"Args":["HealthCenter:CreateEmr","{\"patientId\":\"pa1\",\"patientName\":\"patient01\",\"patientBirthdate\":\"10-03\"}"]}'
 ```
+The console command for this will be:
+```bash
+./bc-network.sh chaincode invoke --cc-name healthcare --cc-args '{"Args":["HealthCenter:CreateEmr","{\"patientId\":\"pa1\",\"patientName\":\"patient01\",\"patientBirthdate\":\"10-03\"}"]}' --user-name hc1 --org medicalprovider1 --channel-name channel1 
+```
 
 Response: created EMR.
 
@@ -126,6 +130,11 @@ FCN_CALL:
 ```bash
 '{"Args":["Physician:ReadEmr","EMR_ID"]}'
 ```
+The console command for this will be:
+```bash
+./bc-network.sh chaincode invoke --cc-name healthcare --cc-args '{"Args":["Physician:ReadEmr","EMR_ID"]}' --user-name py1 --org medicalprovider1 --channel-name channel1
+```
+Replace <code>EMR_ID</code> with the actual EMR_ID received from the previous payload.
 
 Response: EMR with EMR_ID as Id.
 
@@ -137,6 +146,10 @@ FCN_CALL:
 ```bash
 '{"Args":["Physician:AddEmrNote","{\"patientId\":\"pa1\",\"area\":\"Traumatology\",\"vitalSigns\":\"Poor\",\"diagnosis\":\"Fracture\",\"medication\":\"Painkillers\"}"]}'
 ```
+The console command for this will be:
+```bash
+./bc-network.sh chaincode invoke --cc-name healthcare --cc-args '{"Args":["Physician:AddEmrNote","{\"patientId\":\"pa1\",\"area\":\"Traumatology\",\"vitalSigns\":\"Poor\",\"diagnosis\":\"Fracture\",\"medication\":\"Painkillers\"}"]}' --user-name py1 --org medicalprovider1 --channel-name channel1
+```
 
 Response: Note added to pa1’s EMR.
 
@@ -147,6 +160,10 @@ org: medicalprovider1
 FCN_CALL:
 ```bash
 '{"Args":["Patient:GetOwnEmr"]}'
+```
+The console command for this will be:
+```bash
+./bc-network.sh chaincode invoke --cc-name healthcare --cc-args '{"Args":["Patient:GetOwnEmr"]}' --user-name pa1 --org medicalprovider1 --channel-name channel1
 ```
 
 Response: pa1’s EMR updated.
@@ -161,6 +178,10 @@ FCN_CALL:
 ```bash
 '{"Args":["HealthCenter:AuthorizeEmrReading","medicalprovider2","{EMR_ID}"]}'
 ```
+The console command for this will be:
+```bash
+./bc-network.sh chaincode invoke --cc-name healthcare --cc-args '{"Args":["HealthCenter:AuthorizeEmrReading","medicalprovider2","{EMR_ID}"]}' --user-name hc1 --org medicalprovider1 --channel-name channel1
+```
 
 Response: EMR permission.
 
@@ -172,6 +193,10 @@ FCN_CALL:
 ```bash
 '{"Args":["Patient:ApproveEmrSharing","medicalprovider2"]}'
 ```
+The console command for this will be:
+```bash
+./bc-network.sh chaincode invoke --cc-name healthcare --cc-args '{"Args":["Patient:ApproveEmrSharing","medicalprovider2"]}' --user-name pa1 --org medicalprovider1 --channel-name channel1
+```
 
 Response: EMR permission ready to share.
 
@@ -182,6 +207,10 @@ org: medicalprovider2
 FCN_CALL:
 ```bash
 '{"Args":["Physician:GetSharedEmr","medicalprovider1","pa1"]}'
+```
+The console command for this will be:
+```bash
+./bc-network.sh chaincode invoke --cc-name healthcare --cc-args '{"Args":["Physician:GetSharedEmr","medicalprovider1","pa1"]}' --user-name py2 --org medicalprovider2 --channel-name channel1
 ```
 
 Response: EMR shared from medicalprovider1. 
