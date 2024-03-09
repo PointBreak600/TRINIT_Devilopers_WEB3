@@ -89,8 +89,7 @@ As output, we should have three new users for each organization, each one with a
 ### Deploying Chaincode
 Execute the following console command:
 ```bash
-./bc-network.sh chaincode deploy-org --cc-name healthcare --cc-path ../chaincode-healthcare --cc-version 1.1 --cc-sequence 1 
---channel-name channel1 --org medicalprovider1 --org medicalprovider2
+./bc-network.sh chaincode deploy-org --cc-name healthcare --cc-path ../chaincode-healthcare --cc-version 1.1 --cc-sequence 1 --channel-name channel1 --org medicalprovider1 --org medicalprovider2
 ```
 
 Where **healthcare** is the chaincode name and **medicalprovider1** and **medicalprovider2** are the organizations where it will be deploying using the channel1 channel.
