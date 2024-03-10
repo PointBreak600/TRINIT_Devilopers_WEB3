@@ -1,3 +1,7 @@
+## Drive link
+
+[https://drive.google.com/drive/folders/16QELSpY1pmXMAEhJXGRYNsW_TlvSsQDO?usp=sharing](https://drive.google.com/drive/folders/16QELSpY1pmXMAEhJXGRYNsW_TlvSsQDO?usp=sharing)
+
 # Overview
 To run the solution, we will first need to clone our repository. Once the repository was cloned, we should have two folders in your directory and a readme file: 
 1)	**chaincode-healthcare:** It contains the chaincode project.
@@ -213,7 +217,3 @@ The console command for this will be:
 ```
 
 Response: EMR shared from medicalprovider1. 
-
-### Drive link
-
-[https://drive.google.com/drive/folders/16QELSpY1pmXMAEhJXGRYNsW_TlvSsQDO?usp=sharing](https://drive.google.com/drive/folders/16QELSpY1pmXMAEhJXGRYNsW_TlvSsQDO?usp=sharing)
