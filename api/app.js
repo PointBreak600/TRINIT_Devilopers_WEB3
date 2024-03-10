@@ -19,20 +19,16 @@ app.get('/', (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`${error}`);
-            console.log(`stdout: ${stdout}`);
             console.log(`stderr: ${stderr}`);
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
         console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
         res.send(`${stdout}`);
     })
 })
 
-
-app.get('/CreateNetwork', (req, res) => {
+app.get('/createnetwork', (req, res) => {
 
     const { orgName, adminUserName, password } = req.body;
 
@@ -45,20 +41,17 @@ app.get('/CreateNetwork', (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`${error}`);
-            console.log(`stdout: ${stdout}`);
             console.log(`stderr: ${stderr}`);
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
         console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
         res.send(stdout);
     })
 })
 
 
-app.get('/CreateChannel', (req, res) => {
+app.get('/createchannel', (req, res) => {
 
     const { channelName, orgName } = req.body;
 
@@ -70,19 +63,16 @@ app.get('/CreateChannel', (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`${error}`);
-            console.log(`stdout: ${stdout}`);
             console.log(`stderr: ${stderr}`);
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
         console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
         res.send(stdout);
     })
 })
 
-app.get('/AddMoreOrganizations', (req, res) => {
+app.get('/addorgs', (req, res) => {
 
     const { orgName, channelName, adminUserName, password } = req.body;
 
@@ -95,19 +85,16 @@ app.get('/AddMoreOrganizations', (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`${error}`);
-            console.log(`stdout: ${stdout}`);
             console.log(`stderr: ${stderr}`);
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
         console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
         res.send(stdout);
     })
 })
 
-app.get('/JoinOrganizationToChannel', (req, res) => {
+app.get('/joinorgstochannel', (req, res) => {
 
     const { channelName, orgName1, orgName2 } = req.body;
 
@@ -119,19 +106,16 @@ app.get('/JoinOrganizationToChannel', (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`${error}`);
-            console.log(`stdout: ${stdout}`);
             console.log(`stderr: ${stderr}`);
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
         console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
         res.send(stdout);
     })
 })
 
-app.get('/CreateUsers', (req, res) => {
+app.get('/createusers', (req, res) => {
 
     const { userName, userPassword, userRole, orgName } = req.body;
 
@@ -149,14 +133,12 @@ app.get('/CreateUsers', (req, res) => {
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
         console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
         res.send(stdout);
     })
 })
 
-app.get('/DeployChainCode', (req, res) => {
+app.get('/deploychaincode', (req, res) => {
 
     const { chainCodeName, orgName1, orgName2, channelName } = req.body;
 
@@ -169,19 +151,16 @@ app.get('/DeployChainCode', (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`${error}`);
-            console.log(`stdout: ${stdout}`);
             console.log(`stderr: ${stderr}`);
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
         console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
         res.send(stdout);
     })
 })
 
-app.get('/CreateEMR', (req, res) => {
+app.get('/createemr', (req, res) => {
 
     const { chainCodeName, orgName, userName, channelName, userId, userDOB, patientName } = req.body;
 
@@ -211,7 +190,7 @@ app.get('/CreateEMR', (req, res) => {
     })
 })
 
-app.get('/ReadEMR', (req, res) => {
+app.get('/reademr', (req, res) => {
 
     const { chainCodeName, orgName, userName, channelName, emrID } = req.body;
 
@@ -242,7 +221,7 @@ app.get('/ReadEMR', (req, res) => {
     })
 })
 
-app.get('/AddNoteEMR', (req, res) => {
+app.get('/addnoteemr', (req, res) => {
 
     const { chainCodeName, orgName, userName, channelName, userID, area, vitals, diagnosis, medication } = req.body;
 
@@ -278,7 +257,7 @@ app.get('/AddNoteEMR', (req, res) => {
     })
 })
 
-app.get('/DownloadEMR', (req, res) => {
+app.get('/downloademr', (req, res) => {
 
     const { chainCodeName, orgName, userName, channelName } = req.body;
 
@@ -308,7 +287,7 @@ app.get('/DownloadEMR', (req, res) => {
     })
 })
 
-app.get('/SharingEMR', (req, res) => {
+app.get('/shareemr', (req, res) => {
 
     const { chainCodeName, orgName1, orgName2, userName, channelName, emrID } = req.body;
 
@@ -340,7 +319,7 @@ app.get('/SharingEMR', (req, res) => {
     })
 })
 
-app.get('/ApproveSharingEMR', (req, res) => {
+app.get('/approvesharingemr', (req, res) => {
 
     const { chainCodeName, orgName1, orgName2, userName, channelName } = req.body;
 
@@ -371,7 +350,7 @@ app.get('/ApproveSharingEMR', (req, res) => {
     })
 })
 
-app.get('/GetSharedEMR', (req, res) => {
+app.get('/getsharedemr', (req, res) => {
 
     const { chainCodeName, orgName1, orgName2, userName1, userName2, channelName } = req.body;
 
