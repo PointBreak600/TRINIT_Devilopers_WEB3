@@ -18,11 +18,22 @@ Below, there is a step-by-step example of how to run the Healthcare network and 
 
 To setup the Healthcare network, deploy the chaincode and use the chaincode methods we will use a bash terminal to execute a main script called bc-network stored within the fabric-network folder. 
 
+## Prerequisites
+
+We need to install all prereqs required (git, cURL, Docker, Docker-Compose) and bootstrap.
+
+```bash
+cd chaincode-healthcare/
+npm run-script install-prereqs
+npm run-script install-bootstrap
+```
+
 ## Running Healthcare Network
 
 ### Creating Network
 Execute the following console command:
 ```bash
+cd fabric-network/
 ./bc-network.sh network create --org medicalprovider1 --admin-user mp1 --admin-pwd pass123
 ```
 
