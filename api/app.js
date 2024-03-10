@@ -196,15 +196,18 @@ app.get('/CreateEMR', (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`${error}`);
-            console.log(`stdout: ${stdout}`);
             console.log(`stderr: ${stderr}`);
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
-        console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
-        res.send(stdout);
+
+        const startIndex = stdout.indexOf('payload:"') + 'payload:"'.length;
+        const endIndex = stdout.lastIndexOf('"');
+        const jsonString = stdout.substring(startIndex, endIndex).replace(/\\"/g, '"');
+        const usefulPart = JSON.parse(jsonString);
+        console.log(usefulPart);
+
+        res.send(usefulPart);
     })
 })
 
@@ -224,15 +227,18 @@ app.get('/ReadEMR', (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`${error}`);
-            console.log(`stdout: ${stdout}`);
             console.log(`stderr: ${stderr}`);
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
-        console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
-        res.send(stdout);
+
+        const startIndex = stdout.indexOf('payload:"') + 'payload:"'.length;
+        const endIndex = stdout.lastIndexOf('"');
+        const jsonString = stdout.substring(startIndex, endIndex).replace(/\\"/g, '"');
+        const usefulPart = JSON.parse(jsonString);
+        console.log(usefulPart);
+
+        res.send(usefulPart);
     })
 })
 
@@ -257,15 +263,18 @@ app.get('/AddNoteEMR', (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`${error}`);
-            console.log(`stdout: ${stdout}`);
             console.log(`stderr: ${stderr}`);
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
-        console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
-        res.send(stdout);
+
+        const startIndex = stdout.indexOf('payload:"') + 'payload:"'.length;
+        const endIndex = stdout.lastIndexOf('"');
+        const jsonString = stdout.substring(startIndex, endIndex).replace(/\\"/g, '"');
+        const usefulPart = JSON.parse(jsonString);
+        console.log(usefulPart);
+
+        res.send(usefulPart);
     })
 })
 
@@ -284,15 +293,18 @@ app.get('/DownloadEMR', (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`${error}`);
-            console.log(`stdout: ${stdout}`);
             console.log(`stderr: ${stderr}`);
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
-        console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
-        res.send(stdout);
+
+        const startIndex = stdout.indexOf('payload:"') + 'payload:"'.length;
+        const endIndex = stdout.lastIndexOf('"');
+        const jsonString = stdout.substring(startIndex, endIndex).replace(/\\"/g, '"');
+        const usefulPart = JSON.parse(jsonString);
+        console.log(usefulPart);
+
+        res.send(usefulPart);
     })
 })
 
@@ -313,15 +325,18 @@ app.get('/SharingEMR', (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`${error}`);
-            console.log(`stdout: ${stdout}`);
             console.log(`stderr: ${stderr}`);
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
-        console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
-        res.send(stdout);
+
+        const startIndex = stdout.indexOf('payload:"') + 'payload:"'.length;
+        const endIndex = stdout.lastIndexOf('"');
+        const jsonString = stdout.substring(startIndex, endIndex).replace(/\\"/g, '"');
+        const usefulPart = JSON.parse(jsonString);
+        console.log(usefulPart);
+
+        res.send(usefulPart);
     })
 })
 
@@ -341,15 +356,18 @@ app.get('/ApproveSharingEMR', (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`${error}`);
-            console.log(`stdout: ${stdout}`);
             console.log(`stderr: ${stderr}`);
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
-        console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
-        res.send(stdout);
+
+        const startIndex = stdout.indexOf('payload:"') + 'payload:"'.length;
+        const endIndex = stdout.lastIndexOf('"');
+        const jsonString = stdout.substring(startIndex, endIndex).replace(/\\"/g, '"');
+        const usefulPart = JSON.parse(jsonString);
+        console.log(usefulPart);
+
+        res.send(usefulPart);
     })
 })
 
@@ -370,15 +388,18 @@ app.get('/GetSharedEMR', (req, res) => {
     exec(command, (error, stdout, stderr) => {
         if (error) {
             console.error(`${error}`);
-            console.log(`stdout: ${stdout}`);
             console.log(`stderr: ${stderr}`);
             res.send(`error: ${error}`);
             return;
         }
-        console.error(`${error}`);
-        console.log(`stdout: ${stdout}`);
-        console.log(`stderr: ${stderr}`);
-        res.send(stdout);
+
+        const startIndex = stdout.indexOf('payload:"') + 'payload:"'.length;
+        const endIndex = stdout.lastIndexOf('"');
+        const jsonString = stdout.substring(startIndex, endIndex).replace(/\\"/g, '"');
+        const usefulPart = JSON.parse(jsonString);
+        console.log(usefulPart);
+
+        res.send(usefulPart);
     })
 })
 
