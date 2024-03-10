@@ -213,3 +213,7 @@ The console command for this will be:
 ```
 
 Response: EMR shared from medicalprovider1. 
+
+### Drive link
+
+[https://drive.google.com/drive/folders/16QELSpY1pmXMAEhJXGRYNsW_TlvSsQDO?usp=sharing](https://drive.google.com/drive/folders/16QELSpY1pmXMAEhJXGRYNsW_TlvSsQDO?usp=sharing)
